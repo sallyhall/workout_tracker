@@ -4,7 +4,6 @@ class ExercisesController < ApplicationController
 			Exercise,
 			params[:filterrific],
 			select_options: {
-				sorted_by: Exercise.options_for_sorted_by,
 				with_equipment_id: Equipment.options_for_select
 			}
 		) or return

@@ -1,0 +1,20 @@
+<h1>Workout list</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+
+	<% @workouts.each do |workout| %>
+		<tr>
+			<td><%= workout.name %></td>
+			<td><%= workout.description %></td>
+			<td><%= link_to 'Details', workout_path(workout)%></td>
+			<td><%= link_to 'Edit', edit_workout_path(workout) %>
+			<td><%= link_to 'Delete', workout_path(workout), method: :delete, data: {confirm: 'Are you sure?' } %>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Add Workout', new_workout_path %>

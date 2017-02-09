@@ -1,0 +1,26 @@
+<div id="filterrific_results">
+	<div>
+		<%= page_entries_info exercises %>
+	</div>
+</div>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Equipment</th>
+	</tr>
+
+	<% @exercises.each do |exercise| %>
+		<tr>
+			<td><%= exercise.name %></td>
+			<td><%= exercise.description %></td>
+			<td><%= raw(exercise.equipment.map{|e| link_to e.name, equipment_path(e)}.join(", ")) %></td>
+			<td><%= link_to 'Details', exercise_path(exercise)%></td>
+			<td><%= link_to 'Edit', edit_exercise_path(exercise) %>
+			<td><%= link_to 'Delete', exercise_path(exercise), method: :delete, data: {confirm: 'Are you sure?' } %>
+		</tr>
+	<% end %>
+</table>
+
+<%= paginate exercises %>

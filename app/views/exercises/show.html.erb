@@ -1,0 +1,11 @@
+<h1><%= @exercise.name %></h1>
+<p><%= @exercise.description %></p>
+<h3>Equipment required:</h3>
+<ul>
+	<% @exercise.equipment.each do |equipment| %>
+		<li><%= link_to equipment.name, equipment_path(equipment) %></li>
+	<% end %>
+</ul>
+
+<%= link_to 'Back', exercises_path %>
+
